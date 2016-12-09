@@ -1,6 +1,7 @@
 #include "renderer.h"
 #include "log.h"
 #include "window.h"
+#include "glProgram.h"
 
 GLfloat Renderer::vertexBufferData[] = {
 	-1.0f, -1.0f, 0.0f, //1st triangle
@@ -24,6 +25,8 @@ bool Renderer::Init()
 	glGenBuffers(1, &vertexBuffer);
 	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexBufferData), vertexBufferData, GL_STATIC_DRAW);
+
+	GlProgram("vertex.vert", "fragment.frag");
 
 	return true;
 }

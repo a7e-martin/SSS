@@ -75,6 +75,12 @@
     <ClCompile Include="src\rendererComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\resource.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glProgram.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\component.h">
@@ -135,6 +141,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\window.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\glProgram.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

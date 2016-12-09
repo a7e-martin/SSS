@@ -1,44 +1,37 @@
 #ifndef DEF_RESOURCEMANAGER_H
 #define DEF_RESOURCEMANAGER_H
 #include <map>
+#include <memory>
+#include <string>
 
-typedef enum{
-    RESOURCE_NULL = 0,
-    RESOURCE_GRAPHIC = 1,
-    RESOURCE_AUDIO = 2,
-}RESOURCE_TYPE;
-
-class Resource{
-public:
-    Resource() : _id(0), _type(RESOURCE_NULL){}
-    virtual ~Resource() {};
-    virtual void Load() = 0;
-    virtual void Unload() = 0;
-
-    void SetId(unsigned int id){_id = id;};
-    unsigned int GetId() {return _id;};
-
-    void SetFilename(std::string filename) {_filename = filename;}
-    std::string GetFilename() {return _filename;}
-
-    void SetResourceType(RESOURCE_TYPE type) {_type = type;}
-    RESOURCE_TYPE GetResourceType(){return _type;}
-
-    bool IsLoaded() {return _loaded;}
-    void SetLoaded(bool value){_loaded = value;}
-private:
-    std::string _filename;
-    RESOURCE_TYPE _type;
-    unsigned int _id;
-    bool _loaded;
-};
+#include <typeindex>
+#include <iostream>
+#include "resource.h"
+#include "format.h"
 
 class ResourceManager{
 public:
     void Load();
     Resource* GetResource(unsigned int id);
+
+	template<typename T> T* AddResource(std::string name) {
+		if (_resources.find(name) != _resources.end())
+		{
+			return static_cast<T*>(_resources[name].get());
+		}
+		else
+		{
+			_resources[name] = std::make_unique<T>();
+			T* resource = static_cast<T*>(_resources[name].get());
+			resource->Load();
+			resource->SetName(name);
+			std::cout << fmt::format("Resource {} loaded\n", name);
+			return resource;
+		}
+	}
 private:
-    std::map<unsigned int, Resource> _resources;
+	//The key is the name of the file
+    std::map<std::string, std::unique_ptr<Resource>> _resources;
 
 };
 

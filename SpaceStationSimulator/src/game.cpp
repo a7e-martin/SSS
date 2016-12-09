@@ -24,6 +24,7 @@ void Game::Loop()
 	_timer.Start();
 	_renderer.Init();
     gInputEventManager.Init(&_window);
+
 	TestEntity te;
 
 	gFrame = 0;

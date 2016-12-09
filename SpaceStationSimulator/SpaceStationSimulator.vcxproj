@@ -81,6 +81,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>F:\Git\SpaceStationSimulator\SpaceStationSimulator\SpaceStationSimulator\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalDependencies>glew32.lib;glfw3dll.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -106,6 +107,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>F:\Git\SpaceStationSimulator\SpaceStationSimulator\SpaceStationSimulator\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -119,6 +121,7 @@
     <ClCompile Include="src\eventManager.cpp" />
     <ClCompile Include="src\format.cpp" />
     <ClCompile Include="src\game.cpp" />
+    <ClCompile Include="src\glProgram.cpp" />
     <ClCompile Include="src\gvars.cpp" />
     <ClCompile Include="src\inputEventManager.cpp" />
     <ClCompile Include="src\log.cpp" />
@@ -126,6 +129,7 @@
     <ClCompile Include="src\material.cpp" />
     <ClCompile Include="src\renderer.cpp" />
     <ClCompile Include="src\rendererComponent.cpp" />
+    <ClCompile Include="src\resource.cpp" />
     <ClCompile Include="src\resourceManager.cpp" />
     <ClCompile Include="src\shader.cpp" />
     <ClCompile Include="src\sprite.cpp" />
@@ -141,12 +145,14 @@
     <ClInclude Include="src\eventManager.h" />
     <ClInclude Include="src\format.h" />
     <ClInclude Include="src\game.h" />
+    <ClInclude Include="src\glProgram.h" />
     <ClInclude Include="src\gvars.h" />
     <ClInclude Include="src\inputEventManager.h" />
     <ClInclude Include="src\log.h" />
     <ClInclude Include="src\material.h" />
     <ClInclude Include="src\renderer.h" />
     <ClInclude Include="src\rendererComponent.h" />
+    <ClInclude Include="src\resource.h" />
     <ClInclude Include="src\resourceManager.h" />
     <ClInclude Include="src\shader.h" />
     <ClInclude Include="src\sprite.h" />
