@@ -2,7 +2,14 @@
 #include "log.h"
 #include "window.h"
 
-
+GLfloat Renderer::vertexBufferData[] = {
+	-1.0f, -1.0f, 0.0f, //1st triangle
+	1.0f, -1.0f, 0.0f,
+	1.0f, 1.0f, 0.0f, //end of 1st triangle
+	-1.0f, 1.0f, 0.0f, //2nd triangle
+	-1.0f, -1.0f, 0.0f,
+	1.0f, 1.0f, 0.0f //end of 2nd triangle
+};
 
 bool Renderer::Init()
 {
@@ -11,6 +18,13 @@ bool Renderer::Init()
 		LOG("Failed to initialize GLEW");
 		return false;
 	}
+
+	//Load the square in the buffer
+	
+	glGenBuffers(1, &vertexBuffer);
+	glBindBuffer(GL_ARRAY_BUFFER, vertexBuffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertexBufferData), vertexBufferData, GL_STATIC_DRAW);
+
 	return true;
 }
 
@@ -23,8 +37,11 @@ void Renderer::RenderWindow(Window & window)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-
-
 	window.Update();
+}
+
+void Renderer::Render(RendererComponent & rendererComponent)
+{
+	
 }
 

@@ -2,6 +2,7 @@
 #define DEF_RENDERER_H
 #include <GL/glew.h>
 #include "eventManager.h"
+#include "rendererComponent.h"
 
 class Window;
 
@@ -10,8 +11,10 @@ public:
 	bool Init();
 	bool Stop();
 	void RenderWindow(Window& window);
+	void Render(RendererComponent& rendererComponent);
 private:
-
+	static GLfloat vertexBufferData[];
+	GLuint vertexBuffer;
 };
 
 #endif
